@@ -24,4 +24,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginTongbuAction:(id)sender {
+    [GeneralSDK login:^(ResultCode loginResult){
+        switch (loginResult) {
+            case SDK_LOGIN_SUCCESS:
+                NSLog(@"Login success");
+                break;
+            case SDK_LOGIN_CANCEL:
+                NSLog(@"Login Canceled");
+                break;
+            case SDK_LOGIN_FAILED:
+                NSLog(@"Login failed");
+                break;
+            default:
+                break;
+        }
+    }];
+}
 @end
